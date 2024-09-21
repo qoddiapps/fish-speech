@@ -38,7 +38,8 @@ RUN --mount=type=cache,target=/root/.cache,sharing=locked \
 COPY --from=stage-1 /opt/fish-speech/checkpoints /opt/fish-speech/checkpoints
 
 ENV GRADIO_SERVER_NAME="0.0.0.0"
-
+ENV NVIDIA_VISIBLE_DEVICES="all"
+ENV NVIDIA_DRIVER_CAPABILITIES="all"
 EXPOSE 7860
 
 CMD ["./entrypoint.sh"]
